@@ -1,14 +1,40 @@
 {% load template_tags %}
 <head>
     <link rel="stylesheet" href="{{ STATIC_URL }}css/home.css" type="text/css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/zoomable.css" type="text/css" />
+    <!--<link rel="stylesheet" href="{{ STATIC_URL }}css/zoomable.css" type="text/css" />-->
 </head>
 <div class="page_container">
+<table class="para_table">
+  <tbody>
+     <tr>
+         <td> 
+             <p class="paragraph_container"> 
+               Welcome to <b>BeetleDIG</b> – The <b>B</b>eetle <b>D</b>atabase of <b>I</b>mages and <b>G</b>enes. BeetleDIG
+
+               contains images of various body parts and stages of the red flour beetle, 
+
+               <i>Tribolium castaneum</i>. 
+
+               Registered users can tag their gene(s) of interest onto representative pictures of 
+
+               the stages and body regions that correspond to the RNAi/mutant phenotypes 
+
+               they observed. These gene-tags are linked to <a href="http://beetlebase.org/cgi-bin/gbrowse/BeetleBase3.gff3/">GBrowse</a>  and <a href="http://mbilwebh02.mbi.miamioh.edu/wiki/index.php/Main_Page">BeetleWiki</a>, and are 
+
+               publically available to view. Click <a href=" http://www.units.miamioh.edu/tomoyasu/lab/BeetleDIG.html">here</a> for instructions on how to get started.
+             </p>
+        </td>
+      </tr>
+   </tbody>
+</table>
 <div class="row">
     <div class="col-sm-9">
-        <img id="phylogenetic_tree" src="{{ STATIC_URL }}images/mycoplasma_tree_lowRes.png" alt="Phylogenetic Tree" title="Phylogenetic Tree" />
+    <br>
+         <img id="phylogenetic_tree" src="{{ STATIC_URL }}images/mycoplasma_tree_hiRes.png" alt="Phylogenetic Tree" title="Phylogenetic Tree" height="900px" width="900px"/>
+         <ul id="myImage">
+         </ul>
     </div>
-    <div class="col-sm-3">
+<!--    <div class="col-sm-3">
         <div id="search_selected" class="row">
             <div class="col-sm-9">
                 <div class="row">
@@ -42,16 +68,16 @@
             {% endfor %}
             </ol>
         </div>
-    </div>
+    </div> -->
 </div>
 </div>
-<style>
+<!--<style>
     #selectable .ui-selecting { background: paleblue; cursor: pointer;}
     #selectable .ui-selected { background: #AAAAAA; color: white; }
     #selectable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
     #selectable li { margin: 3px; padding: 0.4em; font-size: 15; border-bottom: 1px solid #CCCCCC;}
     #selectable li:hover { cursor: pointer; }
-</style>
+</style> -->
 <!-- Allows us to overwrite the base URL for all modules to the static js directory -->
 <script type="text/javascript">
     var require = {

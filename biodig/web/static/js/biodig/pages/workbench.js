@@ -25,7 +25,8 @@ require.config({
         jquery_ui: 'lib/jquery-ui-1.10.4.min',
         text: 'lib/require-text',
         kinetic: 'lib/kinetic-v5.1.0.min',
-        colorpicker: 'lib/colorpicker/colorpicker'
+        colorpicker: 'lib/colorpicker/colorpicker',
+        combobox: 'lib/combobox'
     }
 });
 

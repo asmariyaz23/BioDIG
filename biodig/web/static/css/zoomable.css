@@ -5,6 +5,13 @@
     left: 0px;
 }
 
+
+#phylogenetic_tree {
+    height: 800px;
+    width: 499px;
+    left: 200px !important;
+}
+
 .zoomable-parent {
     padding: 10px;
 }
@@ -13,11 +20,25 @@
     overflow: hidden;
     width: 560px;
     height: 500px;
+    right: 1px !important;
     background-repeat: no-repeat;
     background-size: auto auto;
     position: relative;
     background: url("images/dark-area.png") repeat-x scroll left top #3C3C3C;
 }
+
+
+.zoomable-container-home {
+    overflow: hidden;
+    width: 940px;
+    height: 500px;
+    right: 1px !important;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    position: relative;
+    background: url("images/dark-area.png") repeat-x scroll left top #3C3C3C;
+}
+
 
 .zoomable-slider-container {
     right: 0;

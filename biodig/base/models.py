@@ -10,6 +10,9 @@ from datetime import datetime
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
 
+# Add Abstract Base For Organism With Images, Genomes
+from abstractBase import OrgWithImages, OrgWithGenome, OrgWithTags
+
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     activation_key = models.CharField(max_length=200)
@@ -576,59 +579,70 @@ class Organism(models.Model):
     def __unicode__(self):
         return self.common_name
 
-class OrganismWithImages(models.Model):
-    organism_id = models.IntegerField(primary_key=True)
-    abbreviation = models.CharField(max_length=255)
-    genus = models.CharField(max_length=255)
-    species = models.CharField(max_length=255)
-    common_name = models.CharField(max_length=255)
-    comment = models.TextField()
-    class Meta:
-        db_table = u'organismwithimages'
-        app_label = u'base'
-        abstract = True
 
-    def __unicode__(self):
-        return self.common_name
-    # READ ONLY MODEL
-    def save(self, **kwargs):
-        raise NotImplementedError
+class OrganismWithGenome(OrgWithGenome):
+      pass
 
-class OrganismWithGenome(models.Model):
-    organism_id = models.IntegerField(primary_key=True)
-    abbreviation = models.CharField(max_length=255)
-    genus = models.CharField(max_length=255)
-    species = models.CharField(max_length=255)
-    common_name = models.CharField(max_length=255)
-    comment = models.TextField()
-    class Meta:
-        db_table = u'organismwithgenome'
-        app_label = u'base'
-        abstract = True
+class OrganismWithTags(OrgWithTags):
+      pass
 
-    def __unicode__(self):
-        return self.common_name
-    # READ ONLY MODEL
-    def save(self, **kwargs):
-        raise NotImplementedError
+class OrganismWithImages(OrgWithImages):
+      pass
 
-class OrganismWithTags(models.Model):
-    organism_id = models.IntegerField(primary_key=True)
-    abbreviation = models.CharField(max_length=255)
-    genus = models.CharField(max_length=255)
-    species = models.CharField(max_length=255)
-    common_name = models.CharField(max_length=255)
-    comment = models.TextField()
-    class Meta:
-        db_table = u'organismwithtags'
-        app_label = u'base'
-        abstract = True
 
-    def __unicode__(self):
-        return self.common_name
-    # READ ONLY MODEL
-    def save(self, **kwargs):
-        raise NotImplementedError
+# class OrganismWithImages(models.Model):
+#     organism_id = models.IntegerField(primary_key=True)
+#     abbreviation = models.CharField(max_length=255)
+#     genus = models.CharField(max_length=255)
+#     species = models.CharField(max_length=255)
+#     common_name = models.CharField(max_length=255)
+#     comment = models.TextField()
+#     class Meta:
+#         db_table = u'organismwithimages'
+#         app_label = u'base'
+#         abstract = True
+# 
+#     def __unicode__(self):
+#         return self.common_name
+#     # READ ONLY MODEL
+#     def save(self, **kwargs):
+#         raise NotImplementedError
+# 
+# class OrganismWithGenome(models.Model):
+#     organism_id = models.IntegerField(primary_key=True)
+#     abbreviation = models.CharField(max_length=255)
+#     genus = models.CharField(max_length=255)
+#     species = models.CharField(max_length=255)
+#     common_name = models.CharField(max_length=255)
+#     comment = models.TextField()
+#     class Meta:
+#         db_table = u'organismwithgenome'
+#         app_label = u'base'
+#         abstract = True
+# 
+#     def __unicode__(self):
+#         return self.common_name
+#     # READ ONLY MODEL
+#     def save(self, **kwargs):
+#         raise NotImplementedError
+# 
+# class OrganismWithTags(models.Model):
+#     organism_id = models.IntegerField(primary_key=True)
+#     abbreviation = models.CharField(max_length=255)
+#     genus = models.CharField(max_length=255)
+#     species = models.CharField(max_length=255)
+#     common_name = models.CharField(max_length=255)
+#     comment = models.TextField()
+#     class Meta:
+#         db_table = u'organismwithtags'
+#         app_label = u'base'
+#         abstract = True
+# 
+#     def __unicode__(self):
+#         return self.common_name
+#     # READ ONLY MODEL
+#     def save(self, **kwargs):
+#         raise NotImplementedError
 
 class OrganismDbxref(models.Model):
     organism_dbxref_id = models.IntegerField(primary_key=True)

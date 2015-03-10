@@ -55,12 +55,13 @@ define(['jquery', 'lib/util'], function($, util) {
     };
 
     FlowNode.prototype.view = function() {
-        if (this.$view == null) {
-            this.$view = $(this.template(this.mydata));
-            $(this).trigger('render');
+        if (this.$view) {
+           this.$view.remove();
         }
 
-        return this.$view;
+    this.$view = $(this.template(this.mydata));
+    $(this).trigger('render');
+    return this.$view;
     };
 
     FlowNode.prototype.before = function(callback) {

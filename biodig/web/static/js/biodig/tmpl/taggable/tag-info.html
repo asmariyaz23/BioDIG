@@ -18,27 +18,86 @@
                 <td><%= group %></td>
             </tr>
             <tr>
-                <td>Genes</td>
+                <td>GBrowse</td>
                 <td>
                 <% if (Object.keys(geneLinks).length > 0) { %>
                     <div class="table-responsive">
                         <table class="table-condensed table-striped">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Uniquename</th>
+                                    <th>BeetleDIG</th>
+                                    <th>BeetleBase</th>
+                                    <th>Greifswald</th>
+                                    <th>Wiki</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% _.each(geneLinks, function(gene) { %>
                                     <tr>
                                         <td>
-                                            <a href="<%= settings.SITE_URL %>genome_browser?organismId=<%= gene.feature.organism %>&name=<%= gene.feature.name %>">
+                                            <a target="_blank" href="<%= settings.SITE_URL %>genome_browser?organismId=<%= gene.feature.organism %>&name=<%= gene.feature.name %>">
                                                 <%= gene.feature.name %>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="<%= settings.SITE_URL %>genome_browser?organismId=<%= gene.feature.organism %>&uniquename=<%= gene.feature.uniquename %>">
+                                            <a target="_blank" id = "BeetleBasegbrowse" href="#" onclick="gbrowse('<%= gene.feature.uniquename %>')">
+                                                <script type="text/javascript">
+                                                   function gbrowse(tc){
+                                                            var method = "POST";
+                                                            var path = "http://beetlebase.org/cgi-bin/gbrowse/BeetleBase3.gff3/";
+                                                            var params = {"name":tc};
+                                                            var form = document.createElement("form");
+                                                            form.setAttribute("method", method);
+                                                            form.setAttribute("action", path);
+
+                                                            for (var key in params) {
+                                                                if(params.hasOwnProperty(key)) {
+                                                                   var hiddenField = document.createElement("input");
+                                                                   hiddenField.setAttribute("type", "hidden");
+                                                                   hiddenField.setAttribute("name", key);
+                                                                   hiddenField.setAttribute("value", params[key]);
+                                                                   form.appendChild(hiddenField);
+                                                                 }
+                                                             }
+
+                                                             document.body.appendChild(form);
+                                                             form.submit();
+                                                     };
+                                                </script>
+                                                <%= gene.feature.uniquename %>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a target="_blank" id = "Greifswaldgbrowse" href="#" onclick="gbrowse('<%= gene.feature.uniquename %>')">
+                                                <script type="text/javascript">
+                                                   function gbrowse(tc){
+                                                            var method = "POST";
+                                                            var path = "http://bioinf.uni-greifswald.de/bioinf/";
+                                                            var params = {"name":tc};
+                                                            var form = document.createElement("form");
+                                                            form.setAttribute("method", method);
+                                                            form.setAttribute("action", path);
+
+                                                            for (var key in params) {
+                                                                if(params.hasOwnProperty(key)) {
+                                                                   var hiddenField = document.createElement("input");
+                                                                   hiddenField.setAttribute("type", "hidden");
+                                                                   hiddenField.setAttribute("name", key);
+                                                                   hiddenField.setAttribute("value", params[key]);
+                                                                   form.appendChild(hiddenField);
+                                                                 }
+                                                             }
+
+                                                             document.body.appendChild(form);
+                                                             form.submit();
+                                                     };
+                                                </script>
+                                                <%= gene.feature.uniquename %>
+                                            </a>
+                                        </td>
+
+                                        <td>
+                                            <a target="_blank" href="http://mbilwebh02.mbi.miamioh.edu/wiki/index.php/<%= gene.feature.uniquename %>">
                                                 <%= gene.feature.uniquename %>
                                             </a>
                                         </td>
@@ -57,3 +116,4 @@
         </tbody>
     </table>
 </div>
+

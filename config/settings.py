@@ -13,7 +13,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'chado',                      # Or path to database file if using sqlite3.
+        'NAME': 'chado1',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'biodig',
         'PASSWORD': '5i72c44u',
@@ -165,7 +165,9 @@ INSTALLED_APPS = (
     'biodig.web.public',
     'biodig.web.registered',
     'biodig.web.admin',
+    'biodig.web.beetles',
     'biodig.rest.v2',
+    'biodig.rest.beetles',
     'biodig.base'
 )
 

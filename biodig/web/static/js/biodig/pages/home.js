@@ -21,12 +21,18 @@ require.config({
     }
 });
 
-var deps = [
-    'jquery', 'underscore', 'settings', 'biodig/ui/zoomable/Zoomable', 'biodig/ui/users/Login',
+/*var deps = [
+    'jquery', 'underscore', 'settings', 'biodig/ui/zoomable/ZoomableHome', 'biodig/ui/users/Login',
     'biodig/ui/users/Register', 'text!biodig/tmpl/helpbox/home.html', 'bootstrap', 'jquery_ui'
+];*/
+
+var deps = [
+    'jquery', 'underscore', 'settings', 'biodig/ui/users/Login',
+    'biodig/ui/users/Register', 'biodig/ui/home/imageRectangles','text!biodig/tmpl/helpbox/home.html', 'bootstrap', 'jquery_ui'
 ];
 
-require(deps, function($, _, settings, ZoomableUI, Login, Register, HelpBox) {
+
+require(deps, function($, _, settings, Login, Register,imageRectangles, HelpBox) {
 
     // setup login, register, and logout forms
     var login = Login.create();
@@ -87,12 +93,15 @@ require(deps, function($, _, settings, ZoomableUI, Login, Register, HelpBox) {
         form.submit();
     });
 
-    ZoomableUI.create('#phylogenetic_tree', {
+    /*ZoomableUIHome.create('#phylogenetic_tree', {
         height: 800,
-        width: 660,
+        width: 940,
         actualImageSrc: settings.STATIC_URL + 'images/mycoplasma_tree_hiRes.png'
-    });
-
+    });*/
+    
+    imageRectangles.create('#myImage')
+    
+    
     var helpDialog = $(_.template(HelpBox)(settings));
 
     $('#helpButton').click(function() {

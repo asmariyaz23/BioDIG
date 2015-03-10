@@ -20,6 +20,7 @@ define(deps, function($, _, util, ZoomableTmpl) {
             this.$container = this.$image.parent().find('.zoomable-container');
             this.$container.height(options.height);
             this.$container.width(options.width);
+            //this.$conatiner.left(options.left);
             this.$container.append(this.$image);
 
             // uses the jQueryUI slider plugin to create the controls as a slider

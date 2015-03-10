@@ -106,3 +106,13 @@ class NotImplementedException(APIException):
     '''
     status_code = 404
     default_detail = 'This method has not been implemented, and is thus missing.'
+
+
+class OrthologDoesNotExist(APIException):
+    '''
+        Ortholog does not exist error.
+    '''
+    status_code = 404
+    default_detail = "The requested ortholog does not exist in BeetleDIG database."
+
+

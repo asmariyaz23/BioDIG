@@ -354,3 +354,43 @@ th {
 .geneLinkLabel {
     width: 110px;
 }
+
+.combobox  {
+    font-family: Lucida Grande;
+    font-size: 12px;
+    position: relative; zoom:1;
+}
+
+.combobox .dropdownlist {
+    display: none;
+    width: 200px;
+    border: solid 1px #000;
+    background-color: #fff;
+    height: 200px;
+    position: absolute;
+    top: 18px;
+    left: 0px;
+}
+
+.combobox .dropdownlist, input {
+font-family: Tahoma;
+font-size: 12px;
+}
+
+.combobox input {
+float: left;
+width: 182px;
+border: solid 1px #ccc;
+height: 15px
+}
+
+.combobox span{
+border: solid 1px #ccc;
+background: #eee;
+width: 16px;
+height: 17px;
+float: left;
+text-align: center;
+border-left: none;
+cursor: default
+}

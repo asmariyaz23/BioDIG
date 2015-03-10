@@ -13,8 +13,72 @@ div#search_selected {
     padding: 5px;
 }
 
+
+ul {
+   list-style-type: none;
+}
+
+div#myImage {
+   position:relative; width:900px; height:900px; 
+   background-image:url("/static/images/mycoplasma_tree_hiRes.png");
+}
+
+a.larva {
+  display:block; position:absolute; 
+  top:43; left:220; width:517px; height:200px;
+}
+
+a.embryo {
+  display:block; position:absolute;
+  top:279; left:40; width:280px; height:189px;
+}
+
+a.pupa {
+  display:block; position:absolute;
+  top:250; left:635; width:265px; height:300px;
+}
+
+a.head {
+  display:block; position:absolute;
+  top:645; left:188; width:100px; height:198px;
+  border:1px solid gray;
+
+}
+
+a.thorax {
+  display:block; position:absolute;
+  top:645; left:295; width:160px; height:198px;
+  border:1px solid gray;
+
+}
+
+a.abdomen {
+  display:block; position:absolute;
+  top:645; left:460; width:272px; height:198px;
+  border:1px solid gray;
+
+}
+
+a.otherphenotype {
+  display:block; position:absolute;
+  top:549; left:145; width:180px; height:90px;
+}
+
 .page_container {
     margin: 15px;
+}
+
+.para_table {
+     padding:0px;
+     border: 1px solid #d4d4d4;
+}
+
+
+.paragraph_container {
+    margin: 15px;
+    text-align: justify;
+    font-family: "Helvetica Neue";
+    font-size: 15px;
 }
 
 #helpBox {
